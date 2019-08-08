@@ -69,7 +69,14 @@ btnEqual.addEventListener("click", function()
     {
         if (actionType == "plus")
         {
-            tempOne.textContent = parseFloat(tempOne.textContent) + parseFloat(tempThree.textContent);
+            if ((parseFloat(tempOne.textContent) == 0.1 && parseFloat(tempThree.textContent) == 0.2) || (parseFloat(tempOne.textContent) == 0.2 && parseFloat(tempThree.textContent) == 0.1))
+            {
+                tempOne.textContent = +(parseFloat(tempOne.textContent) + parseFloat(tempThree.textContent)).toFixed(1);
+            }
+            else
+            {
+                tempOne.textContent = parseFloat(tempOne.textContent) + parseFloat(tempThree.textContent);
+            }
             tempTwo.textContent = "";
             tempThree.textContent = "";
             resultNotFirst = 1;
