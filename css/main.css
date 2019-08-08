@@ -19,6 +19,7 @@ body
 
     color: white;
     background-image: linear-gradient(to right, #FA709A 0%, #FEE140 100%);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
 
     align-items: center;
     flex-flow: column nowrap;
