@@ -1,11 +1,10 @@
-let btnResult = document.querySelector("#result");
 let btnEqual = document.querySelector("#equal");
 let btnClean = document.querySelector("#clean");
 let tempOne = document.querySelector(".tempOne");
 let tempTwo = document.querySelector(".tempTwo");
 let tempThree = document.querySelector(".tempThree");
 let buttonActionIsPressed = 0;
-resultNotFirst = 0;
+let resultNotFirst = 0;
 
 let numbers = document.querySelectorAll(".btnNumber");
 for(let i = 0; i < numbers.length; i++)
