@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Blinker&display=swap");
+
 *, *::before, *::after
 {
     box-sizing: border-box;
@@ -7,35 +9,61 @@
 
 body
 {
+    font-family: "Blinker", sans-serif;
+    font-size: 36px;
+
     display: flex;
 
     height: 100vh;
+    min-height: 455px;
+
+    color: white;
+    background-image: linear-gradient(to right, #FA709A 0%, #FEE140 100%);
 
     align-items: center;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: top;
 }
-.row
+
+h1
+{
+    font-size: 10vmin;
+}
+.calculator
 {
     display: flex;
 
-    width: 500px;
+    height: 100%;
+
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.row
+{
+    display: flex;
 
     align-items: center;
     flex-flow: row nowrap;
     justify-content: center;
 }
 
-.row div
+.row div:not(.result)
 {
-    margin: 5px;
-    padding: 25px;
+    display: flex;
 
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+
+    transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
     text-align: center;
 
     background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
-    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 #result
@@ -43,27 +71,44 @@ body
     text-align: right;
 }
 
-.row div:not(#result)
+.row div:not(.result)
 {
     cursor: pointer;
 }
 
-.tempTwo
+.row div:not(.result):hover, .row div:not(.result):active
 {
-    position: absolute;
-
-    margin-top: 9px;
-    margin-left: -15px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.collumn
+.result
 {
+    font-size: 21px;
+
     display: flex;
+    overflow: hidden;
 
-    flex-flow: column nowrap;
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    padding: 0 20px;
+
+    transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+    text-align: center;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 
-#clean
+@media screen and (max-width: 320px)
 {
-    flex-grow: 0;
+    .row div:not(.result), .result
+    {
+        width: 65px;
+        height: 65px;
+    }
 }

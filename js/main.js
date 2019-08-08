@@ -24,6 +24,10 @@ for(let i = 0; i < numbers.length; i++)
         }
         if (resultNotFirst == 1)
         {
+            if (buttonActionIsPressed == 0)
+            {
+                tempOne.textContent += numbers[i].textContent;
+            }
             if (buttonActionIsPressed == 1)
             {
                 tempThree.textContent += numbers[i].textContent;
@@ -38,9 +42,12 @@ for(let i = 0; i < actions.length; i++)
 {
     actions[i].addEventListener("click", function()
     {
-        tempTwo.textContent = actions[i].textContent;
-        buttonActionIsPressed = 1;
-        actionType = actions[i].id;
+        if (tempOne.textContent != "")
+        {
+            tempTwo.textContent = actions[i].textContent;
+            buttonActionIsPressed = 1;
+            actionType = actions[i].id;
+        }
     });
 }
 
@@ -62,7 +69,7 @@ btnEqual.addEventListener("click", function()
     {
         if (actionType == "plus")
         {
-            tempOne.textContent = parseInt(tempOne.textContent) + parseInt(tempThree.textContent);
+            tempOne.textContent = parseFloat(tempOne.textContent) + parseFloat(tempThree.textContent);
             tempTwo.textContent = "";
             tempThree.textContent = "";
             resultNotFirst = 1;
@@ -70,7 +77,7 @@ btnEqual.addEventListener("click", function()
         }
         if (actionType == "minus")
         {
-            tempOne.textContent = parseInt(tempOne.textContent) - parseInt(tempThree.textContent);
+            tempOne.textContent = parseFloat(tempOne.textContent) - parseFloat(tempThree.textContent);
             tempTwo.textContent = "";
             tempThree.textContent = "";
             resultNotFirst = 1;
@@ -78,7 +85,7 @@ btnEqual.addEventListener("click", function()
         }
         if (actionType == "multiply")
         {
-            tempOne.textContent = parseInt(tempOne.textContent) * parseInt(tempThree.textContent);
+            tempOne.textContent = parseFloat(tempOne.textContent) * parseFloat(tempThree.textContent);
             tempTwo.textContent = "";
             tempThree.textContent = "";
             resultNotFirst = 1;
@@ -86,7 +93,7 @@ btnEqual.addEventListener("click", function()
         }
         if (actionType == "divide")
         {
-            tempOne.textContent = parseInt(tempOne.textContent) / parseInt(tempThree.textContent);
+            tempOne.textContent = parseFloat(tempOne.textContent) / parseFloat(tempThree.textContent);
             tempTwo.textContent = "";
             tempThree.textContent = "";
             resultNotFirst = 1;
